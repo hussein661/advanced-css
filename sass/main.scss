@@ -17,11 +17,11 @@ $color-white: #fff;
 $color-black: #000;
 $color-grey-light-1: #f7f7f7;
 
-$color-secondary-light:#ffb990;
-$color-secondary-dark:#ff7730;
+$color-secondary-light:rgba(255, 185, 144, 1);
+$color-secondary-dark:rgba(255, 119, 48,1);
 
-$color-tertiary-light:#2998ff;
-$color-tertiary-dark:#5643fa;
+$color-tertiary-light:rgba(41, 152, 255,1);
+$color-tertiary-dark:rgba(86, 67, 250,1);
 
 
 //grid
@@ -408,7 +408,7 @@ body {
 	&__side {
 	color: white;
 	font-size: 2rem;
-	height: 50rem;
+	height: 52rem;
 	transition: all .8s ease;
 	position: absolute;
 	top: 0;
@@ -417,6 +417,8 @@ body {
 	backface-visibility: hidden;
 	border-radius: .3rem;
 	box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+	overflow: hidden;
+
 	&--front {
 		background-color: $color-white;
 	}
@@ -445,10 +447,86 @@ body {
 	&__picture {
 		background-size: cover;
 		height: 23rem;
+		background-blend-mode: screen;
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		-webkit-clip-path:polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		
 
 		&--1{
-			background-image: url('https://images.newscientist.com/wp-content/uploads/2019/06/13111643/gettyimages-485057010.jpg');
+			background-image: linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark),url('https://images.newscientist.com/wp-content/uploads/2019/06/13111643/gettyimages-485057010.jpg');
 		}
+
+		&--2{
+			background-image:linear-gradient(to right bottom,$color-primary-light,$color-primary-dark), url('https://assets.newatlas.com/dims4/default/eafac98/2147483647/strip/true/crop/1600x1068+0+0/resize/1160x774!/quality/90/?url=https%3A%2F%2Fassets.newatlas.com%2F05%2Fdf%2Fc7dd3ec346a88b19ae46a158b382%2Fhonorable-people-2-a33486384f280505c34916bbfd2eea4e-original.jpg');
+		}
+		&--3{
+			background-image: linear-gradient(to right bottom,$color-tertiary-light,$color-tertiary-dark),url('https://scx1.b-cdn.net/csz/news/800/2019/2-nature.jpg');
+		}
+	}
+	&__heading {
+		font-size:2.8rem;
+		color:white;
+		text-transform: uppercase;
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		text-align: right;
+		width: 75%;
+		
+	}
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+
+		&--1 {
+			background-image: linear-gradient(to right bottom,
+			rgba($color-secondary-light,1),
+			rgba($color-secondary-dark,1));
+		}
+	}
+	&__details {
+		padding: 3rem;
+		ul {
+			list-style: none;
+			width: 80%;
+			margin: 0 auto;
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+				color: black;
+
+				&:not(:last-child){
+					border-bottom: .1rem solid #ccc;
+				}
+			}
+
+			}
+	}
+	&__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 100%;
+		text-align: center;
+		// margin: 0 auto;
+	}
+
+	&__price-box {
+		text-align: center;
+		color:white;
+
+	}
+
+	&__price-only {
+		font-size: 1.6rem;
+		text-transform: to-upper-case($string: "");
+	}
+	&__price-value {
+		font-size: 5rem;
+		font-weight: 100;
 	}
 }
 
